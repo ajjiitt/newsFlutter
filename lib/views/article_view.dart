@@ -5,7 +5,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class ArticleView extends StatefulWidget {
   final String blogUrl;
-  ArticleView(String url, {this.blogUrl});
+  ArticleView({this.blogUrl});
   @override
   _ArticleViewState createState() => _ArticleViewState();
 }
@@ -29,6 +29,7 @@ class _ArticleViewState extends State<ArticleView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text("Flutter"),
+            // Text(widget.blogUrl),
             Text(
               "News",
               style: TextStyle(color: Colors.blue),
@@ -49,7 +50,8 @@ class _ArticleViewState extends State<ArticleView> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: WebView(
-          initialUrl: "https://pub.dev/packages/webview_flutter",
+          
+          initialUrl: widget.blogUrl,
           javascriptMode:  JavascriptMode.unrestricted,
           onWebViewCreated: ((WebViewController webViewController) {
             _completer.complete(webViewController);

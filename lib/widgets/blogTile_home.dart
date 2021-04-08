@@ -14,11 +14,8 @@ class BlogTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onDoubleTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ArticleView(url)
-            ));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ArticleView(blogUrl: url)));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 16),
@@ -37,6 +34,7 @@ class BlogTile extends StatelessWidget {
                   color: Colors.black54,
                   fontWeight: FontWeight.w600),
             ),
+            // Text(url),
             SizedBox(
               height: 8,
             ),
